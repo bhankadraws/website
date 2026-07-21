@@ -14,4 +14,4 @@ gallery:
 
 I was commissioned to create a pattern for Lucy and Yak, as part of their Pride collaboration with 6 other artists. The prompt was to envision what Pride meant to me, personally in a bold, colourful way. I chose to focus on my cultural background, and the symbolism of the tiger as a symbol of divine power. These tigers are done in various pride flag colours and superimposed onto a background of Indian rangoli designs and patterns.
 
-You can get the collection [here](https://lucyandyak.com/collections/with-love).
+You can see the collection [here](https://lucyandyak.com/pages/pride-2024-with-love?srsltid=AfmBOoqYhx3ifjTzFaaa_R6f_wzFyC0Lh-zssR6MKUUxSfdLV5Uge2Rr).
