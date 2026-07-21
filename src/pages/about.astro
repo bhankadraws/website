@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import headshot from '../assets/about/headshot.jpg';
+---
+
+<BaseLayout title="About — Bhavani Bala" active="about">
+  <div class="about">
+    <div class="photo">
+      <Image src={headshot} alt="Bhavani Bala" />
+    </div>
+
+    <div class="bio">
+      <h1>Bhavani Bala</h1>
+      <div class="meta">she/they &middot; Glasgow &amp; Singapore</div>
+
+      <p>
+        I am a visual storyteller and facilitator based in Glasgow and Singapore. I have a BA
+        (Architecture) from the National University of Singapore and an MDes (Communication
+        Design) from the Glasgow School of Art.
+      </p>
+
+      <p>
+        My creative practice enables the creation of authentic, evocative stories. Through comics
+        and illustration, I explore themes of south asian identity, mental health awareness and
+        featuring (the star of the show) my cat, Kevin. I am currently working on a bunch of
+        community/collaboration-focused comics and publications, focussing on the ripple effects
+        of empire on modern society and how history can be a tool for making sense of the world
+        today.
+      </p>
+
+      <p class="last">
+        I meld community engagement and storytelling through my workshop facilitation practice,
+        primarily in Improvisational theatre. I am also the co-founder and Artistic Director of
+        Kutty Press, a mini publishing experiment rooted in the spirit of play, process, and
+        print, weaving together visual storytelling, political reflection, and the tactile joy of
+        printmaking and bookmaking.
+      </p>
+
+      <div class="ig-block">
+        <div>Find my work on instagram:</div>
+        <div class="ig-links">
+          <div class="wavy-underline">
+            <a href="https://instagram.com/bhankadraws" class="ig-handle">@bhankadraws</a>
+            <span class="underline"></span>
+          </div>
+          <div class="wavy-underline">
+            <a href="https://instagram.com/kuttypress.studio" class="ig-handle"
+              >@kuttypress.studio</a
+            >
+            <span class="underline"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .about {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 64px;
+      padding: 64px 48px 40px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .about {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 40px 32px 32px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about {
+        padding: 28px 20px 24px;
+      }
+    }
+
+    .photo {
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+    }
+
+    @media (max-width: 900px) {
+      .photo {
+        max-width: 260px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .photo {
+        max-width: none;
+      }
+    }
+
+    .photo :global(img) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bio {
+      font-family: var(--font-mono);
+      color: var(--ink);
+      max-width: 620px;
+    }
+
+    .bio h1 {
+      margin: 0 0 4px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .bio .meta {
+      font-size: 13px;
+      color: var(--muted-strong);
+      margin-bottom: 28px;
+    }
+
+    .bio p {
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0 0 20px;
+    }
+
+    .bio p.last {
+      margin-bottom: 32px;
+    }
+
+    .ig-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border-dashed);
+    }
+
+    .ig-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .ig-links {
+        gap: 16px;
+      }
+    }
+
+    .ig-handle {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</BaseLayout>

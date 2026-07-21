@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Homepage (Work / gallery) — design reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#faf8f4}
+  .tile{position:relative;border:1px solid rgba(51,71,91,.18);border-radius:2px;overflow:hidden;cursor:pointer;
+        transition:transform .2s ease,border-color .2s ease;transform-origin:center}
+  .tile:hover{transform:scale(1.035);border-color:#ee6b57}
+  .tile:hover .underline{--u:1}
+  .title{position:relative;display:inline-block;font-size:14px;font-weight:600;color:#33475b}
+  .underline{position:absolute;left:0;right:0;bottom:-6px;height:4px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='4' viewBox='0 0 10 4'%3E%3Cpath d='M0 2 Q2.5 0 5 2 T10 2' fill='none' stroke='%23ee6b57' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;background-size:10px 4px;
+    clip-path:inset(0 calc(100% - var(--u,0)*100%) 0 0);
+    transition:clip-path .45s ease}
+  .nav-link{color:#33475b;text-decoration:none;opacity:.65}
+  .nav-link.active{opacity:1;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:#ee6b57;text-underline-offset:4px}
+</style>
+</head>
+<body>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 48px;border-bottom:2px dashed rgba(51,71,91,.25)">
+    <a href="homepage.html" style="display:block;line-height:0"><img src="../assets/logo.png" style="height:56px;display:block"></a>
+    <div style="display:flex;gap:36px;font-family:'Geist Mono',monospace;font-size:14px;letter-spacing:.02em">
+      <a class="nav-link active" href="homepage.html">Work</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="#">Resume</a>
+    </div>
+    <div style="display:flex;gap:18px;font-family:'Geist Mono',monospace;font-size:12px;color:#ee6b57">
+      <a href="#" style="color:#ee6b57;text-decoration:none">IG</a>
+      <span style="opacity:.4">IN</span>
+      <span style="opacity:.4">@</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:40px 48px 56px">
+
+    <div class="tile">
+      <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#eee7db,#eee7db 10px,#f7f2ea 10px,#f7f2ea 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:rgba(51,71,91,.4)">image placeholder</span>
+      </div>
+      <div style="padding:12px 14px;font-family:'Geist Mono',monospace">
+        <div class="title">Ghost Trains<span class="underline"></span></div>
+        <div style="font-size:11px;color:rgba(51,71,91,.5);margin-top:2px">Screen-print, Linocut</div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#e9e2ec,#e9e2ec 10px,#f6f1f5 10px,#f6f1f5 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:rgba(51,71,91,.4)">image placeholder</span>
+      </div>
+      <div style="padding:12px 14px;font-family:'Geist Mono',monospace">
+        <div class="title">Spacing Out<span class="underline"></span></div>
+        <div style="font-size:11px;color:rgba(51,71,91,.5);margin-top:2px">Digital illustration</div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#e2e9de,#e2e9de 10px,#f1f5ee 10px,#f1f5ee 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:rgba(51,71,91,.4)">image placeholder</span>
+      </div>
+      <div style="padding:12px 14px;font-family:'Geist Mono',monospace">
+        <div class="title">Shree<span class="underline"></span></div>
+        <div style="font-size:11px;color:rgba(51,71,91,.5);margin-top:2px">Lettering study</div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#ece2df,#ece2df 10px,#f8f2f0 10px,#f8f2f0 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:rgba(51,71,91,.4)">image placeholder</span>
+      </div>
+      <div style="padding:12px 14px;font-family:'Geist Mono',monospace">
+        <div class="title">Pressure Cooker<span class="underline"></span></div>
+        <div style="font-size:11px;color:rgba(51,71,91,.5);margin-top:2px">Graphite sketch</div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#e0e6ea,#e0e6ea 10px,#f0f4f6 10px,#f0f4f6 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:rgba(51,71,91,.4)">image placeholder</span>
+      </div>
+      <div style="padding:12px 14px;font-family:'Geist Mono',monospace">
+        <div class="title">Tiger Repeat<span class="underline"></span></div>
+        <div style="font-size:11px;color:rgba(51,71,91,.5);margin-top:2px">Surface pattern</div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#e5e1d6,#e5e1d6 10px,#f5f1e7 10px,#f5f1e7 20px);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:rgba(51,71,91,.4)">image placeholder</span>
+      </div>
+      <div style="padding:12px 14px;font-family:'Geist Mono',monospace">
+        <div class="title">Colonised<span class="underline"></span></div>
+        <div style="font-size:11px;color:rgba(51,71,91,.5);margin-top:2px">Zine collage</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

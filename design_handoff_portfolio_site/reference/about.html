@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>About — design reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#faf8f4}
+  .nav-link{color:#33475b;text-decoration:none;opacity:.65}
+  .nav-link.active{opacity:1;text-decoration:underline;text-decoration-style:wavy;text-decoration-color:#ee6b57;text-underline-offset:4px}
+  .ig-link{position:relative;display:inline-block;cursor:pointer}
+  .ig-link:hover .underline{--u:1}
+  .underline{position:absolute;left:0;right:0;bottom:-6px;height:4px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='4' viewBox='0 0 10 4'%3E%3Cpath d='M0 2 Q2.5 0 5 2 T10 2' fill='none' stroke='%23ee6b57' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;background-size:10px 4px;
+    clip-path:inset(0 calc(100% - var(--u,0)*100%) 0 0);
+    transition:clip-path .45s ease}
+</style>
+</head>
+<body>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 48px;border-bottom:2px dashed rgba(51,71,91,.25)">
+    <a href="homepage.html" style="display:block;line-height:0"><img src="../assets/logo.png" style="height:56px;display:block"></a>
+    <div style="display:flex;gap:36px;font-family:'Geist Mono',monospace;font-size:14px;letter-spacing:.02em">
+      <a class="nav-link" href="homepage.html">Work</a>
+      <a class="nav-link active" href="about.html">About</a>
+      <a class="nav-link" href="#">Resume</a>
+    </div>
+    <div style="display:flex;gap:18px;font-family:'Geist Mono',monospace;font-size:12px;color:#ee6b57">
+      <a href="https://instagram.com/bhankadraws" style="color:#ee6b57;text-decoration:none">IG</a>
+      <span style="opacity:.4">IN</span>
+      <span style="opacity:.4">@</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:380px 1fr;gap:64px;padding:64px 48px 40px;max-width:1240px;margin:0 auto">
+
+    <div>
+      <div style="border:1px solid rgba(51,71,91,.18);border-radius:4px;overflow:hidden;aspect-ratio:4/5">
+        <img src="../assets/headshot.jpg" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+
+    <div style="font-family:'Geist Mono',monospace;color:#33475b;max-width:620px">
+      <h1 style="margin:0 0 4px;font-family:'Geist',sans-serif;font-weight:600;font-size:28px;color:#ee6b57;text-transform:uppercase;letter-spacing:.01em">Bhavani Bala</h1>
+      <div style="font-size:13px;color:rgba(51,71,91,.55);margin-bottom:28px">she/they &middot; Glasgow &amp; Singapore</div>
+
+      <p style="font-size:15px;line-height:1.75;margin:0 0 20px">I am a visual storyteller and facilitator based in Glasgow and Singapore. I have a BA (Architecture) from the National University of Singapore and an MDes (Communication Design) from the Glasgow School of Art.</p>
+
+      <p style="font-size:15px;line-height:1.75;margin:0 0 20px">My creative practice enables the creation of authentic, evocative stories. Through comics and illustration, I explore themes of south asian identity, mental health awareness and featuring (the star of the show) my cat, Kevin. I am currently working on a bunch of community/collaboration-focused comics and publications, focussing on the ripple effects of empire on modern society and how history can be a tool for making sense of the world today.</p>
+
+      <p style="font-size:15px;line-height:1.75;margin:0 0 32px">I meld community engagement and storytelling through my workshop facilitation practice, primarily in Improvisational theatre. I am also the co-founder and Artistic Director of Kutty Press, a mini publishing experiment rooted in the spirit of play, process, and print, weaving together visual storytelling, political reflection, and the tactile joy of printmaking and bookmaking.</p>
+
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;padding-top:20px;border-top:1px dashed rgba(51,71,91,.25)">
+        <div>Find my work on instagram:</div>
+        <div style="display:flex;gap:24px">
+          <div class="ig-link">
+            <a href="https://instagram.com/bhankadraws" style="color:#33475b;text-decoration:none;font-weight:600">@bhankadraws</a>
+            <span class="underline"></span>
+          </div>
+          <div class="ig-link">
+            <a href="https://instagram.com/kuttypress.studio" style="color:#33475b;text-decoration:none;font-weight:600">@kuttypress.studio</a>
+            <span class="underline"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding:32px 48px;border-top:1px dashed rgba(51,71,91,.2);font-family:'Geist Mono',monospace;font-size:12px;color:rgba(51,71,91,.5)">
+    &copy;2026, Bhavani Balasubramanyam.
+  </div>
+
+</body>
+</html>

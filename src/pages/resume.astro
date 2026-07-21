@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Resume — Bhavani Bala" active="resume">
+  <div class="resume">
+    <h1>Resume</h1>
+    <p>Coming soon.</p>
+  </div>
+
+  <style>
+    .resume {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 64px 48px 120px;
+      font-family: var(--font-mono);
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .resume {
+        padding: 40px 32px 80px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .resume {
+        padding: 28px 20px 60px;
+      }
+    }
+
+    .resume h1 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .resume p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted-strong);
+    }
+  </style>
+</BaseLayout>

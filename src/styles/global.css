@@ -1,0 +1,60 @@
+:root {
+  --bg: #faf8f4;
+  --ink: #33475b;
+  --accent: #ee6b57;
+  --border-hairline: rgba(51, 71, 91, 0.18);
+  --border-dashed: rgba(51, 71, 91, 0.25);
+  --muted: rgba(51, 71, 91, 0.5);
+  --muted-strong: rgba(51, 71, 91, 0.55);
+
+  --font-mono: 'Geist Mono', monospace;
+  --font-display: 'Geist', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wavy-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.wavy-underline .underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='4' viewBox='0 0 10 4'%3E%3Cpath d='M0 2 Q2.5 0 5 2 T10 2' fill='none' stroke='%23ee6b57' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 10px 4px;
+  clip-path: inset(0 calc(100% - var(--u, 0) * 100%) 0 0);
+  transition: clip-path 0.45s ease;
+}
+
+.wavy-underline:hover .underline {
+  --u: 1;
+}
