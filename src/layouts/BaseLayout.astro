@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 
 interface Props {
   title: string;
-  active: 'work' | 'about' | 'resume';
+  active?: 'work' | 'about' | 'resume';
 }
 
 const { title, active } = Astro.props;
