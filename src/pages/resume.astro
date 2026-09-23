@@ -1,48 +1,1062 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const cvPdf = "/Bhavani-Balasubramanyam-CV.pdf";
+
+interface Item {
+  title: string;
+  detail?: string;
+  /** Italic line, e.g. a talk or workshop title */
+  note?: string;
+  href?: string;
+}
+
+interface Group {
+  label?: string;
+  items: Item[];
+}
+
+interface Section {
+  title: string;
+  /** "timeline" shows a year column; "list" is a plain linked list */
+  kind: "timeline" | "list";
+  groups: Group[];
+}
+
+const sections: Section[] = [
+  {
+    title: "Education",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2022 – 2024",
+        items: [
+          {
+            title: "The Glasgow School of Art",
+            detail: "MDes Communication Design, Glasgow, Scotland",
+            href: "https://www.gsa.ac.uk/",
+          },
+        ],
+      },
+      {
+        label: "2021 – 2022",
+        items: [
+          {
+            title: "Nanyang Technological University",
+            detail: "UX Design and Product Management Certificate, Singapore",
+            href: "https://www.ntu.edu.sg/",
+          },
+        ],
+      },
+      {
+        label: "2012 – 2016",
+        items: [
+          {
+            title: "National University of Singapore",
+            detail: "BA (Hons) Architecture, Singapore",
+            href: "https://www.nus.edu.sg/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Employment & Affiliations",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2025 – Present",
+        items: [
+          {
+            title: "Kutty Press Studio",
+            detail: "Co-Founder and Artistic Director, UK/India",
+            href: "https://instagram.com/kuttypress.studio",
+          },
+          {
+            title: "Rhymes with Purple Productions",
+            detail: "Associate Producer, Scotland",
+            href: "https://www.rhymeswithpurple.net/about",
+          },
+        ],
+      },
+      {
+        label: "2023 – Present",
+        items: [
+          {
+            title: "The Glasgow School of Art",
+            detail:
+              "Graduate Recruitment Assistant / Student Consultant, Glasgow",
+            href: "https://www.gsa.ac.uk/",
+          },
+          {
+            title: "The Improv Cooperative",
+            detail: "Performer and Facilitator, Glasgow",
+            href: "https://instagram.com/theimprovcooperative",
+          },
+        ],
+      },
+      {
+        label: "2025 – 2026",
+        items: [
+          {
+            title: "South Asian Salon",
+            detail: "MEET Vertical Head and Outreach Coordinator, Remote",
+            href: "https://southasiansalon.com/",
+          },
+        ],
+      },
+      {
+        label: "2014 – 2022",
+        items: [
+          {
+            title: "The Improv Company",
+            detail: "Performer and Facilitator, Singapore",
+            href: "https://www.improv.sg/",
+          },
+        ],
+      },
+      {
+        label: "2022",
+        items: [
+          { title: "Privé Technologies", detail: "UI Designer, Singapore" },
+        ],
+      },
+      {
+        label: "2020 – 2021",
+        items: [
+          {
+            title: "Pencil Technologies",
+            detail: "Creative Designer and Customer Success, Singapore",
+          },
+        ],
+      },
+      {
+        label: "2016 – 2018",
+        items: [
+          {
+            title: "National University of Singapore",
+            detail: "Research Assistant – 3D Specialist, Singapore",
+            href: "https://www.nus.edu.sg/",
+          },
+        ],
+      },
+      {
+        label: "2015",
+        items: [
+          {
+            title: "Esplanade Co. Ltd",
+            detail: "Visual Arts Trainee, Singapore",
+            href: "https://www.esplanade.com/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Group Exhibitions",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2026",
+        items: [
+          {
+            title: "Claiming Tomorrow",
+            detail: "Guido Borso, New Delhi/Italy",
+          },
+          {
+            title: "Paper and Play",
+            detail: "Gallery XXL, New Delhi",
+            href: "https://www.galleryxxl.com/exhibitions/28-paper-and-play/overview/",
+          },
+          {
+            title: "Pulp Bazaar",
+            detail: "Pulp Society, New Delhi",
+            href: "https://homegrown.co.in/homegrown-creators/could-pulp-societys-summer-bazaar-be-the-anti-gallery-space-delhi-sorely-needs",
+          },
+          {
+            title: "Prize Onion Exhibition",
+            detail: "Onion Press/La Belle Adventure, Edinburgh",
+            href: "https://www.instagram.com/p/DXwm-y4gsNo/?img_index=1",
+          },
+          {
+            title: "Jugaading Through Life",
+            detail: "South Asian Salon/Offset Projects, New Delhi",
+            href: "https://homegrown.co.in/homegrown-explore/jugaading-through-life-is-reclaiming-indias-culture-of-everyday-innovation",
+          },
+        ],
+      },
+      {
+        label: "2025",
+        items: [
+          {
+            title: "Collective Colours",
+            detail: "Colour Theory/Glasgow Collective, Glasgow",
+            href: "https://www.instagram.com/kuttypress.studio/p/DRwZzeVDSDa/",
+          },
+          {
+            title: "Tiny Art Exhibition",
+            detail: "Kala Kutta Studios, New Delhi",
+            href: "https://www.instagram.com/kuttypress.studio/p/DOTIpVvDVUB/",
+          },
+        ],
+      },
+      {
+        label: "2024",
+        items: [
+          {
+            title: "This Little Red Dot",
+            detail: "Singapore Art Museum/Botanic Gardens, Singapore",
+            href: "https://www.singaporeartmuseum.sg/Art-Events/Exhibitions/Little-Red-Dot-2024",
+          },
+          {
+            title: "MDes ComDes Degree Show",
+            detail: "The Glasgow School of Art, Glasgow",
+            href: "https://2024.gsashowcase.net/bhavani-b-balasubramanyam/",
+          },
+        ],
+      },
+      {
+        label: "2022",
+        items: [
+          { title: "With Pride", detail: "Haus217, Singapore" },
+          { title: "Arcus Pride Art", detail: "Clifford Chance, Singapore" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Facilitation, Talks & Features",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2026",
+        items: [
+          {
+            title: "Commonwealth Games Live Event",
+            detail: "Improv Workshops and Zine making, Glasgow",
+          },
+          {
+            title: "Zine Mela",
+            note: "South India Through Zines, Comics and Publishing",
+            detail: "Panel, Remote/UK",
+            href: "https://www.hamjaahsan.com/mela",
+          },
+          {
+            title: "Mainspring Arts",
+            note: "Exploring Structure and Play through Zine making",
+            detail: "Workshop for Springboard Neurodivergent Arts Network, UK",
+          },
+          {
+            title: "Glasgow Zine Fest",
+            note: "Cityscapes, Comics and Collectibles – Sequential Storytelling Through Ephemera",
+            detail: "Workshop, Glasgow",
+            href: "https://www.glasgowzinelibrary.com/gzf-events",
+          },
+          {
+            title: "Broken Frontier",
+            detail: "Comic Reviews and Kutty Press Feature, UK",
+            href: "https://www.brokenfrontier.com/kutty-press-interview/",
+          },
+          { title: "Creative Glasgow PITCH POT", detail: "Talk, Glasgow" },
+          {
+            title: "South Asian Salon",
+            detail: "Spotlight Feature",
+            href: "https://southasiansalon.com/post/kutty-press",
+          },
+          {
+            title: "Onion Press",
+            detail: "Onion Prize Runner Up Feature, UK",
+            href: "https://onionpress.cargo.site/bhavani-bala",
+          },
+        ],
+      },
+      {
+        label: "2025",
+        items: [
+          {
+            title: "Thought Bubble Comic Festival",
+            note: "Between Self-help and Solidarity",
+            detail: "Panel, Harrogate",
+            href: "https://www.thoughtbubblefestival.com/",
+          },
+          { title: "Creative Glasgow Members' Meet", detail: "Talk, Glasgow" },
+          {
+            title: "Narrative Improv",
+            detail: "Six-week course, The Improv Cooperative, Glasgow",
+          },
+        ],
+      },
+      {
+        label: "2024",
+        items: [
+          {
+            title: "Broken Frontier",
+            detail: "Comic Review (Avial), UK",
+            href: "https://www.brokenfrontier.com/tag/bhavani-bala/",
+          },
+          {
+            title: "Lucy and Yak",
+            detail: "With Love – Pride Collection, Artist Feature, UK",
+            href: "/work/lucy-and-yak",
+          },
+          {
+            title: "The Skinny",
+            detail: "The Glasgow School of Art Degree Show Feature, Glasgow",
+            href: "https://issuu.com/theglasgowschoolofart/docs/skinny_2024_single_pages",
+          },
+        ],
+      },
+      {
+        label: "2022",
+        items: [
+          {
+            title: "HomeGroundAsia",
+            detail: "Artist Feature, Singapore",
+            href: "https://thehomeground.asia/destinations/singapore/in-conversation-with-bhavani-bala-illustrator-and-improv-coach/",
+          },
+          {
+            title: "FZine",
+            detail:
+              "17 LGBTQIA+ Creatives And The New Voices And Perspectives They Bring, Singapore",
+            href: "https://www.fzine.com/culture/lgbtq-singapore-creatives-community-perspectives-pride-month",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Publications",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2024",
+        items: [
+          {
+            title:
+              "Enhancement Through Partnership: Co-Leading Enhancements with Students",
+            detail:
+              "AdvanceHE. Charters, M., O'Neill, R. and Balasubramanyam, B., The Glasgow School of Art",
+            href: "https://radar.gsa.ac.uk/9671/",
+          },
+          {
+            title:
+              "Enhancement Through Partnership: Exploring Opportunities to Work in Meaningful Partnership with Students",
+            detail:
+              "17th Annual University of Glasgow Learning and Teaching Conference. Charters, M., Dickson, R., McKee Mooneesawmy, K. and Balasubramanyam, B., The Glasgow School of Art",
+            href: "https://radar.gsa.ac.uk/9596/",
+          },
+        ],
+      },
+      {
+        label: "2023",
+        items: [
+          {
+            title: "Curriculum Conversations",
+            detail:
+              "Creative Curriculum: Supporting Creative Practice and Practitioners for the 21st Century, GSA Learning & Teaching Conference 2023. Balasubramanyam, B. and Stevens, T.",
+            href: "https://radar.gsa.ac.uk/9012/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Contributions",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2026",
+        items: [
+          {
+            title: "MicroChIP Issue 1",
+            detail: "Anthology, The CHIP Collective, Scotland",
+          },
+        ],
+      },
+      {
+        label: "2025",
+        items: [
+          {
+            title: "The Great Comic Tree Anthology Issue 2",
+            detail: "Chris Phillips, Scotland",
+            href: "/work/the-dream-mechanic",
+          },
+        ],
+      },
+      {
+        label: "2024",
+        items: [
+          {
+            title: "Printmaking zine",
+            detail: "Coin Operated Press, UK",
+            href: "https://coinoperatedpress.bigcartel.com/product/pdf-the-printmaking-zine",
+          },
+        ],
+      },
+      {
+        label: "2021",
+        items: [
+          {
+            title: "White: behind mental health stigma",
+            detail: "Singapore",
+            href: "https://www.thewhitebook.info/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Awards",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2025",
+        items: [
+          {
+            title: "Runner Up",
+            detail: "The Prize Onion, Onion Press",
+            href: "https://onionpress.cargo.site/bhavani-bala",
+          },
+        ],
+      },
+      {
+        label: "2024",
+        items: [
+          {
+            title: "Shortlist",
+            detail:
+              "NewOne Awards Visual Communication Graduation Project Award, Illustration",
+            href: "https://mp.weixin.qq.com/s/Tp_5xkrnJbwzVHxeu1Mhfw",
+          },
+          {
+            title: "Shortlist",
+            detail:
+              "Artsthread Creative Graduate Showcase – digital / visual comms / film",
+            href: "https://www.artsthread.com/portfolios/ghost-trains",
+          },
+        ],
+      },
+      {
+        label: "2022",
+        items: [
+          {
+            title: "Partial PGT Merit Scholarship",
+            detail: "Governor's Scholarship, The Glasgow School of Art",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Volunteering",
+    kind: "timeline",
+    groups: [
+      {
+        label: "2025",
+        items: [
+          {
+            title: "Project Ability",
+            detail: "Aspire Programme, Trongate 103, Glasgow",
+            href: "https://www.project-ability.co.uk/",
+          },
+        ],
+      },
+      {
+        label: "2024",
+        items: [{ title: "TAGS Fest", detail: "Fruitmarket, Edinburgh" }],
+      },
+      {
+        label: "2018 – 2024",
+        items: [
+          {
+            title: "Singapore Improv Festival",
+            detail: "Stanford Arts Centre, Singapore",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Bookstores",
+    kind: "list",
+    groups: [
+      {
+        items: [
+          {
+            title: "Good Press",
+            detail: "Glasgow, UK",
+            href: "https://goodpress.co.uk/collections/vendors?q=Kutty%20Press",
+          },
+          {
+            title: "Gallery XXL",
+            detail: "New Delhi, India",
+            href: "https://galleryxxl.com/",
+          },
+          {
+            title: "Hot Cock Soup Publishing",
+            detail: "New Delhi, India",
+            href: "https://hotcocksoup.myshopify.com/",
+          },
+          {
+            title: "Pulp Society Online Store",
+            detail: "New Delhi, India",
+            href: "https://pulpsociety.in/collections/books",
+          },
+          {
+            title: "Bookatico",
+            detail: "Vadodara, India",
+            href: "https://www.instagram.com/bookatico/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Libraries",
+    kind: "list",
+    groups: [
+      {
+        items: [
+          {
+            title: "Venice Biennale Library",
+            detail: "Venice, Italy",
+            href: "https://www.labiennale.org/en/venues/biennale-library",
+          },
+          {
+            title: "The Baltic Archive Zine Library",
+            detail: "Newcastle, UK",
+            href: "https://archive.baltic.art/object/bhavani-bala-an-immigrants-guide-to-infiltrating-a-place-ma3609",
+          },
+          {
+            title: "Atrangi Katta Zine Library",
+            detail: "Thane, India",
+            href: "https://www.instagram.com/atrangi.katta/?hl=en",
+          },
+          {
+            title: "The Glasgow School of Art Library",
+            detail: "Glasgow, UK",
+            href: "https://www.glasgow.ac.uk/library/",
+          },
+          {
+            title: "Glasgow Zine Library",
+            detail: "Glasgow, UK",
+            href: "https://www.glasgowzinelibrary.com/",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const isExternal = (href: string) => /^https?:\/\//.test(href);
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-");
+const pad = (i: number) => String(i + 1).padStart(2, "0");
 ---
 
 <BaseLayout title="Resume — Bhavani Bala" active="resume">
   <div class="resume">
-    <h1>Resume</h1>
-    <p>Coming soon.</p>
+    <header class="intro">
+      <div class="intro-top">
+        <div>
+          <h1>Bhavani Balasubramanyam</h1>
+          <div class="role">
+            Visual Storyteller <span class="sep">|</span> Facilitator
+          </div>
+        </div>
+        <a class="download" href={cvPdf} download>
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <path d="M12 4v11"></path>
+            <path d="M7 10.5l5 5 5-5"></path>
+            <path d="M5 19.5h14"></path>
+          </svg>
+          Download CV
+        </a>
+      </div>
+      <p>
+        I am an interdisciplinary creative practitioner working across
+        illustration, comics, independent publishing, workshop facilitation, and
+        theatre production. My practice centres on storytelling as a tool for
+        community engagement, exploring themes of identity, belonging, and South
+        Asian representation through visual and participatory arts.
+      </p>
+    </header>
+
+    <div class="body">
+      <nav class="toc" aria-label="Resume sections">
+        <ol>
+          {
+            sections.map((section, i) => (
+              <li>
+                <a href={`#${slug(section.title)}`}>
+                  <span class="num">{pad(i)}</span>
+                  {section.title}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+
+      <div class="sections">
+        {
+          sections.map((section, i) => (
+            <section class="section" id={slug(section.title)}>
+              <h2>
+                <span class="num">{pad(i)}</span>
+                {section.title}
+              </h2>
+
+              {section.kind === "timeline" ? (
+                <ol class="timeline">
+                  {section.groups.map((group) => (
+                    <li class="group">
+                      <div class="when">{group.label}</div>
+                      <ul class="entries">
+                        {group.items.map((item) => (
+                          <li class="entry">
+                            {item.href ? (
+                              <a
+                                class="title link"
+                                href={item.href}
+                                {...(isExternal(item.href)
+                                  ? {
+                                      target: "_blank",
+                                      rel: "noopener noreferrer",
+                                    }
+                                  : {})}
+                              >
+                                {item.title}
+                                <span class="arrow" aria-hidden="true">
+                                  {isExternal(item.href) ? "↗" : "→"}
+                                </span>
+                              </a>
+                            ) : (
+                              <span class="title">{item.title}</span>
+                            )}
+                            {item.note && <span class="note">{item.note}</span>}
+                            {item.detail && (
+                              <span class="detail">{item.detail}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <ul class="cards">
+                  {section.groups.flatMap((group) =>
+                    group.items.map((item) => (
+                      <li>
+                        {item.href ? (
+                          <a
+                            class="card is-link"
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <span class="title">
+                              {item.title}
+                              <span class="arrow" aria-hidden="true">
+                                ↗
+                              </span>
+                            </span>
+                            {item.detail && (
+                              <span class="detail">{item.detail}</span>
+                            )}
+                          </a>
+                        ) : (
+                          <div class="card">
+                            <span class="title">{item.title}</span>
+                            {item.detail && (
+                              <span class="detail">{item.detail}</span>
+                            )}
+                          </div>
+                        )}
+                      </li>
+                    )),
+                  )}
+                </ul>
+              )}
+            </section>
+          ))
+        }
+      </div>
+    </div>
   </div>
 
   <style>
     .resume {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 64px 48px 120px;
+      padding: 64px 48px 96px;
       font-family: var(--font-mono);
       color: var(--ink);
     }
 
     @media (max-width: 900px) {
       .resume {
-        padding: 40px 32px 80px;
+        padding: 40px 32px 72px;
       }
     }
 
     @media (max-width: 600px) {
       .resume {
-        padding: 28px 20px 60px;
+        padding: 28px 20px 56px;
       }
     }
 
-    .resume h1 {
-      margin: 0 0 16px;
+    /* Intro */
+
+    .intro {
+      padding-bottom: 40px;
+      border-bottom: 2px dashed var(--border-dashed);
+    }
+
+    .intro-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 600px) {
+      .intro-top {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    .intro h1 {
+      margin: 0 0 8px;
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 28px;
+      font-size: 32px;
+      line-height: 1.15;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.01em;
     }
 
-    .resume p {
+    @media (max-width: 600px) {
+      .intro h1 {
+        font-size: 24px;
+      }
+    }
+
+    .role {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .role .sep {
+      color: var(--accent);
+      margin: 0 6px;
+    }
+
+    .intro p {
+      max-width: 720px;
+      margin: 0;
       font-size: 15px;
-      line-height: 1.75;
+      line-height: 1.8;
+    }
+
+    .download {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border: 1.5px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .download:hover {
+      background: transparent;
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* Body: sticky index + sections */
+
+    .body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 64px;
+    }
+
+    @media (max-width: 900px) {
+      .body {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    .toc {
+      position: sticky;
+      top: 32px;
+      align-self: start;
+      padding-top: 44px;
+    }
+
+    @media (max-width: 900px) {
+      .toc {
+        display: none;
+      }
+    }
+
+    .toc ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toc a {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.65;
+      transition: opacity 0.2s ease;
+    }
+
+    .toc a:hover {
+      opacity: 1;
+    }
+
+    .num {
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sections {
+      min-width: 0;
+    }
+
+    .section {
+      padding: 40px 0;
+      scroll-margin-top: 16px;
+    }
+
+    .section + .section {
+      border-top: 1px dashed var(--border-dashed);
+    }
+
+    .section h2 {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 28px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .section h2 .num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Timeline */
+
+    .timeline,
+    .entries,
+    .cards {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .timeline {
+      position: relative;
+    }
+
+    /* one continuous line through the whole section */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 124px;
+      border-left: 1.5px dashed var(--border-dashed);
+    }
+
+    .group {
+      position: relative;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 48px;
+    }
+
+    .group + .group {
+      margin-top: 28px;
+    }
+
+    /* year marker on the line */
+    .group::before {
+      content: "";
+      position: absolute;
+      left: 119px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+
+    .when {
+      text-align: right;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 20px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .timeline::before {
+        left: 5px;
+      }
+
+      .group {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-left: 28px;
+      }
+
+      .group::before {
+        left: 0;
+      }
+
+      .when {
+        text-align: left;
+      }
+    }
+
+    .entry {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .entry + .entry {
+      margin-top: 16px;
+    }
+
+    .title {
+      font-weight: 600;
+    }
+
+    .note {
+      font-style: italic;
+    }
+
+    .detail {
       color: var(--muted-strong);
+      font-size: 13px;
+    }
+
+    /* same wavy underline as .wavy-underline in global.css */
+    .link {
+      position: relative;
+      align-self: flex-start;
+      text-decoration: none;
+    }
+
+    .link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 4px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='4' viewBox='0 0 10 4'%3E%3Cpath d='M0 2 Q2.5 0 5 2 T10 2' fill='none' stroke='%23ee6b57' stroke-width='1'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 10px 4px;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.45s ease;
+    }
+
+    .link:hover::after {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .arrow {
+      display: inline-block;
+      margin-left: 6px;
+      color: var(--accent);
+      font-weight: 400;
+      transition: transform 0.2s ease;
+    }
+
+    .link:hover .arrow,
+    .card.is-link:hover .arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* Cards (bookstores, libraries) */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 16px;
+      border: 1px solid var(--border-hairline);
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink);
+      text-decoration: none;
+      transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .card.is-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
   </style>
 </BaseLayout>
